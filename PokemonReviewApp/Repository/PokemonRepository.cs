@@ -81,6 +81,12 @@ namespace PokemonReviewApp.Repository
             return GetPokemons().Where(c => c.Name.Trim().ToUpper() == pokemonCreate.Name.TrimEnd().ToUpper())
                 .FirstOrDefault();
         }
+
+        public bool UpdatePokemon(int ownerId, int categoryId, Pokemon pokemon)
+        {
+            _context.Update(pokemon);
+            return Save();
+        }
     }
 }
 
